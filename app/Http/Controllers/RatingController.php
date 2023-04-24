@@ -34,8 +34,8 @@ class RatingController extends Controller
         //Showing Rating
         public function ShowRating($id){
         $ratingCount = DB::table('_ratings')
-        ->where('expert_id', $id)
-        ->count();
+        ->where('expert_id', $id);
+     
 
         $averageRating = DB::table('_ratings')
         ->where('expert_id', $id)
@@ -48,7 +48,6 @@ class RatingController extends Controller
         "ratingCount" => $ratingCount,
         "averageRating" => $averageRating,
         "Expert"=>$ExpertRating
-
         ];
         return response()->json([
                 'message'=>'The Avg Rating For this Expert',
